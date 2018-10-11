@@ -9,11 +9,15 @@ public class PlayerController : MonoBehaviour
     public bool autoFire = false;
     public Transform spawnPoint;
     public GameObject bullet;
+    public float ammoAmount;
+    public float reloadTime;
 
     public float knockbackRate;
 
     Rigidbody2D rb2d;
 
+    float maxAmmoAmount;
+    float maxReloadTime;
     float horizontalInput = 0;
     float verticalInput = 0;
     bool fireInput;
@@ -22,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        maxAmmoAmount = ammoAmount;
+        maxReloadTime = reloadTime;
     }
     // Use this for initialization
     void Start ()
@@ -36,10 +42,14 @@ public class PlayerController : MonoBehaviour
         if (!autoFire)
         {
             Aim();
-            Shoot();
+            if (fireInput)
+            {
+                Shoot();
+            }
         }
         else
         {
+            Aim();
             //here you put without Aiming , it will fire as you press a direction keys
         }
 	}
@@ -62,25 +72,25 @@ public class PlayerController : MonoBehaviour
             //Calculate the Angle of the weapon and brings the direction to life.
             float gunAngle = Mathf.Atan2(aimVector.y, aimVector.x) * Mathf.Rad2Deg;
             weapon.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+            if (autoFire)
+            {
+                Shoot();
+            }
             Debug.Log(aimVector);
         }
     }
     void Shoot()
     {
-        if (fireInput)
-        {
-            Vector3 spawnPos = spawnPoint.position;
-            Quaternion spawnRot = Quaternion.identity;
+        Vector3 spawnPos = spawnPoint.position;
+        Quaternion spawnRot = Quaternion.identity;
 
-            BaseBulletScript bul = Instantiate(bullet, spawnPos, spawnRot).GetComponent<BaseBulletScript>();
-            bul.Setup(shootVector);
-
-            KnockBack(shootVector);
-        }
+        BaseBulletScript bul = Instantiate(bullet, spawnPos, spawnRot).GetComponent<BaseBulletScript>();
+        bul.Setup(shootVector);
+        KnockBack(shootVector);
     }
 
     void KnockBack(Vector3 direction)
     {
-        rb2d.AddForce(direction * -knockbackRate, ForceMode2D.Impulse);
+        rb2d.AddForce((direction * -knockbackRate) * Time.deltaTime, ForceMode2D.Impulse);
     }
 }

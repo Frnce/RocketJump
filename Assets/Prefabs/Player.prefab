@@ -148,8 +148,8 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61665859851366060
 BoxCollider2D:
@@ -191,7 +191,7 @@ MonoBehaviour:
   autoFire: 0
   spawnPoint: {fileID: 4609710065526762}
   bullet: {fileID: 1666137401051400, guid: f1420b14829eff74fbbf435d0e39f79a, type: 2}
-  knockbackRate: 5
+  knockbackRate: 450
 --- !u!212 &212834800113562286
 SpriteRenderer:
   m_ObjectHideFlags: 1

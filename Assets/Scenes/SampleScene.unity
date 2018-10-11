@@ -431,6 +431,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114118297733698184, guid: 9dbe11f3e6a39fc42b54bbd409cf6218,
+        type: 2}
+      propertyPath: reloadTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114118297733698184, guid: 9dbe11f3e6a39fc42b54bbd409cf6218,
+        type: 2}
+      propertyPath: ammoAmount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dbe11f3e6a39fc42b54bbd409cf6218, type: 2}
   m_IsPrefabAsset: 0

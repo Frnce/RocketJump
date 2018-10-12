@@ -29,4 +29,17 @@ public class BaseBulletScript : MonoBehaviour
         Destroy(gameObject, 1f);
         //TODO look for way for the player to knockback
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player_1"))
+        {
+            ScoreManager.GiveScore("Player_1");
+            Destroy(gameObject);
+        }
+        if (collision.collider.CompareTag("Player_2"))
+        {
+            ScoreManager.GiveScore("Player_2");
+            Destroy(gameObject);
+        }
+    }
 }

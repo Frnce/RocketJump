@@ -191,6 +191,8 @@ MonoBehaviour:
   autoFire: 0
   spawnPoint: {fileID: 4609710065526762}
   bullet: {fileID: 1666137401051400, guid: f1420b14829eff74fbbf435d0e39f79a, type: 2}
+  ammoAmount: 5
+  reloadTime: 3
   knockbackRate: 450
 --- !u!212 &212834800113562286
 SpriteRenderer:

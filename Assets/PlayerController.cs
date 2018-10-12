@@ -18,16 +18,35 @@ public class PlayerController : MonoBehaviour
 
     float maxAmmoAmount;
     float maxReloadTime;
-    float horizontalInput = 0;
-    float verticalInput = 0;
-    bool fireInput;
+
+    //Add more for more players
+    float horizontalInput_P1 = 0;
+    float verticalInput_P1 = 0;
+    bool fireInput_P1;
+
+    float horizontalInput_P2 = 0;
+    float verticalInput_P2 = 0;
+    bool fireInput_P2;
 
     Vector3 shootVector;
+
+    string playerTag = "";
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         maxAmmoAmount = ammoAmount;
         maxReloadTime = reloadTime;
+
+        //TODO Find something better with this type of code
+        if (CompareTag("Player_1"))
+        {
+            playerTag = "Player1";
+        }
+
+        if (CompareTag("Player_2"))
+        {
+            playerTag = "Player2";
+        }
     }
     // Use this for initialization
     void Start ()
@@ -41,30 +60,53 @@ public class PlayerController : MonoBehaviour
         GetInput();
         if (!autoFire)
         {
-            Aim();
-            if (fireInput)
+            if(playerTag == "Player1")
+            {
+                Aim(horizontalInput_P1,verticalInput_P1);
+            }
+            if(playerTag == "Player2")
+            {
+                Aim(horizontalInput_P2,verticalInput_P2);
+            }
+
+            if (playerTag == "Player1" && fireInput_P1)
+            {
+                Shoot();
+            }
+            if (playerTag == "Player2" && fireInput_P2)
             {
                 Shoot();
             }
         }
         else
         {
-            Aim();
+            if (playerTag == "Player1")
+            {
+                Aim(horizontalInput_P1, verticalInput_P1);
+            }
+            if (playerTag == "Player2")
+            {
+                Aim(horizontalInput_P2, verticalInput_P2);
+            }
             //here you put without Aiming , it will fire as you press a direction keys
         }
 	}
     void GetInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput_P1 = Input.GetAxisRaw("Horizontal_P1");
+        verticalInput_P1 = Input.GetAxisRaw("Vertical_P1");
 
-        fireInput = Input.GetKeyDown(KeyCode.K);
+        horizontalInput_P2 = Input.GetAxisRaw("Horizontal_P2");
+        verticalInput_P2 = Input.GetAxisRaw("Vertical_P2");
+
+        fireInput_P1 = Input.GetButtonDown("Fire1_P1");
+        fireInput_P2 = Input.GetButtonDown("Fire1_P2");
     }
 
-    void Aim()
+    void Aim(float horizontal,float vertical)
     {
         //gets the direction the input
-        Vector3 aimVector = new Vector3(horizontalInput, verticalInput, 0);
+        Vector3 aimVector = new Vector3(horizontal, vertical, 0);
         //Check if the user presses an input
         if(aimVector.x != 0 || aimVector.y != 0)
         {

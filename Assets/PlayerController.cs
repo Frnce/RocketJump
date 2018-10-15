@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public float ammoAmount;
     public float reloadTime;
+    public bool isJoystickEnabled = false;
 
     public float knockbackRate;
 
@@ -93,14 +94,34 @@ public class PlayerController : MonoBehaviour
 	}
     void GetInput()
     {
-        horizontalInput_P1 = Input.GetAxisRaw("Horizontal_P1");
-        verticalInput_P1 = Input.GetAxisRaw("Vertical_P1");
+        if (isJoystickEnabled)
+        {
+            horizontalInput_P1 = hInput.GetAxis("HorizontalJoystick_P1");
+            verticalInput_P1 = hInput.GetAxis("VerticalJoystick_P1");
 
-        horizontalInput_P2 = Input.GetAxisRaw("Horizontal_P2");
-        verticalInput_P2 = Input.GetAxisRaw("Vertical_P2");
+            horizontalInput_P2 = hInput.GetAxis("HorizontalJoystick_P2");
+            verticalInput_P2 = hInput.GetAxis("VerticalJoystick_P2");
 
-        fireInput_P1 = Input.GetButtonDown("Fire1_P1");
-        fireInput_P2 = Input.GetButtonDown("Fire1_P2");
+            fireInput_P1 = hInput.GetButtonDown("FireJoystick_P1");
+            fireInput_P2 = hInput.GetButtonDown("FireJoystick_P2");
+        }
+        else
+        {
+            if (playerTag == "Player1")
+            {
+                horizontalInput_P1 = hInput.GetAxis("Horizontal_P1");
+                verticalInput_P1 = hInput.GetAxis("Vertical_P1");
+
+                fireInput_P1 = hInput.GetButtonDown("Fire_P1");
+            }
+            if(playerTag == "Player2")
+            {
+                horizontalInput_P2 = hInput.GetAxis("Horizontal_P2");
+                verticalInput_P2 = hInput.GetAxis("Vertical_P2");
+
+                fireInput_P2 = hInput.GetButtonDown("Fire_P2");
+            }
+        }
     }
 
     void Aim(float horizontal,float vertical)

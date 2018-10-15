@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66ab67005225c04e98f70452ca48165, type: 3}
+  m_Name: KeyBindings
+  m_EditorClassIdentifier: 
+  inputs:
+  - Name: Horizontal_P1
+    UniqueName: Horizontal_P2
+    Type: 0
+    Positive:
+      Primary: 100
+      Secondary: 0
+    Negative:
+      Primary: 97
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Vertical_P1
+    UniqueName: Vertical_P1
+    Type: 0
+    Positive:
+      Primary: 119
+      Secondary: 0
+    Negative:
+      Primary: 115
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Fire_P1
+    UniqueName: Fire_P2
+    Type: 0
+    Positive:
+      Primary: 107
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: HorizontalJoystick_P1
+    UniqueName: HorizontalJoystick_P1
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: VerticalJoystick_P1
+    UniqueName: VerticalJostick_P2
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 1
+    Invert: 1
+    Sensitivity: 1000
+    val: 0
+  - Name: FireJoystick_P1
+    UniqueName: FireJoystick_P1
+    Type: 0
+    Positive:
+      Primary: 330
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Horizontal_P2
+    UniqueName: Horizontal_P2
+    Type: 0
+    Positive:
+      Primary: 275
+      Secondary: 0
+    Negative:
+      Primary: 276
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Vertical_P2
+    UniqueName: Vertical_P2
+    Type: 0
+    Positive:
+      Primary: 273
+      Secondary: 0
+    Negative:
+      Primary: 274
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Fire_P2
+    UniqueName: Fire_P2
+    Type: 0
+    Positive:
+      Primary: 261
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: HorizontalJoystick_P2
+    UniqueName: HorizontalJoystick_P2
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: VerticalJoystick_P2
+    UniqueName: VerticalJoystick_P2
+    Type: 2
+    Positive:
+      Primary: 0
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 1
+    Invert: 1
+    Sensitivity: 1000
+    val: 0
+  - Name: FireJoystick_P2
+    UniqueName: FireJoystick_P2
+    Type: 0
+    Positive:
+      Primary: 330
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  rebindRemoveKey: 27
+  forceResetInEditor: 1

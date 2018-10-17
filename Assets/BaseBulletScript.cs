@@ -29,16 +29,12 @@ public class BaseBulletScript : MonoBehaviour
         Destroy(gameObject, 1f);
         //TODO look for way for the player to knockback
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Player_1"))
+        Destroy(gameObject); //TODO Consider Changing it to Object pooling
+        if (collision.CompareTag("Player"))
         {
-            ScoreManager.GiveScore("Player_1");
-            Destroy(gameObject);
-        }
-        if (collision.collider.CompareTag("Player_2"))
-        {
-            ScoreManager.GiveScore("Player_2");
+            collision.gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

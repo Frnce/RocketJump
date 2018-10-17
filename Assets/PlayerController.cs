@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     //TODO Consider for other Player Controllers
+    [Range(1,4)]
+    public int playerNumber = 1;
     public Transform weapon;
     public bool autoFire = false;
     public Transform spawnPoint;
@@ -21,13 +24,13 @@ public class PlayerController : MonoBehaviour
     float maxReloadTime;
 
     //Add more for more players
-    float horizontalInput_P1 = 0;
-    float verticalInput_P1 = 0;
-    bool fireInput_P1;
+    string horizontalInputName;
+    string verticalInputName;
+    string fireInputName;
 
-    float horizontalInput_P2 = 0;
-    float verticalInput_P2 = 0;
-    bool fireInput_P2;
+    float horizontalInput = 0;
+    float verticalInput = 0;
+    bool fireInput;
 
     Vector3 shootVector;
 
@@ -37,90 +40,85 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         maxAmmoAmount = ammoAmount;
         maxReloadTime = reloadTime;
-
-        //TODO Find something better with this type of code
-        if (CompareTag("Player_1"))
-        {
-            playerTag = "Player1";
-        }
-
-        if (CompareTag("Player_2"))
-        {
-            playerTag = "Player2";
-        }
     }
     // Use this for initialization
     void Start ()
     {
+        SetInputNames();
         GetInput();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
     {
         GetInput();
         if (!autoFire)
         {
-            if(playerTag == "Player1")
+            Aim(horizontalInput, verticalInput);
+            if (fireInput)
             {
-                Aim(horizontalInput_P1,verticalInput_P1);
-            }
-            if(playerTag == "Player2")
-            {
-                Aim(horizontalInput_P2,verticalInput_P2);
+                Shoot();
             }
 
-            if (playerTag == "Player1" && fireInput_P1)
-            {
-                Shoot();
-            }
-            if (playerTag == "Player2" && fireInput_P2)
-            {
-                Shoot();
-            }
+            //if (playerTag == "Player1")
+            //{
+               
+            //}
+            //if(playerTag == "Player2")
+            //{
+            //    Aim(horizontalInput_P2,verticalInput_P2);
+            //}
+
+          
+            //if (playerTag == "Player2" && fireInput_P2)
+            //{
+            //    Shoot();
+            //}
         }
         else
         {
-            if (playerTag == "Player1")
-            {
-                Aim(horizontalInput_P1, verticalInput_P1);
-            }
-            if (playerTag == "Player2")
-            {
-                Aim(horizontalInput_P2, verticalInput_P2);
-            }
+            //if (playerTag == "Player1")
+            //{
+            //    Aim(horizontalInput_P1, verticalInput_P1);
+            //}
+            //if (playerTag == "Player2")
+            //{
+            //    Aim(horizontalInput_P2, verticalInput_P2);
+            //}
             //here you put without Aiming , it will fire as you press a direction keys
         }
 	}
+    private void SetInputNames()
+    {
+        if (isJoystickEnabled)
+        {
+            horizontalInputName = "HorizontalJoystick_P" + playerNumber;
+            verticalInputName = "VerticalJoystick_P" + playerNumber;
+
+            fireInputName = "FireJoystick_P" + playerNumber;
+        }
+        else
+        {
+            horizontalInputName = "Horizontal_P" + playerNumber;
+            verticalInputName = "Vertical_P" + playerNumber;
+
+            fireInputName = "Fire_P" + playerNumber;
+        }
+    }
     void GetInput()
     {
         if (isJoystickEnabled)
         {
-            horizontalInput_P1 = hInput.GetAxis("HorizontalJoystick_P1");
-            verticalInput_P1 = hInput.GetAxis("VerticalJoystick_P1");
+            horizontalInput = hInput.GetAxis(horizontalInputName);
+            verticalInput = hInput.GetAxis(verticalInputName);
 
-            horizontalInput_P2 = hInput.GetAxis("HorizontalJoystick_P2");
-            verticalInput_P2 = hInput.GetAxis("VerticalJoystick_P2");
-
-            fireInput_P1 = hInput.GetButtonDown("FireJoystick_P1");
-            fireInput_P2 = hInput.GetButtonDown("FireJoystick_P2");
+            fireInput = hInput.GetButtonDown(fireInputName);
         }
         else
         {
-            if (playerTag == "Player1")
-            {
-                horizontalInput_P1 = hInput.GetAxis("Horizontal_P1");
-                verticalInput_P1 = hInput.GetAxis("Vertical_P1");
+            horizontalInput = hInput.GetAxis(horizontalInputName);
+            verticalInput = hInput.GetAxis(verticalInputName);
 
-                fireInput_P1 = hInput.GetButtonDown("Fire_P1");
-            }
-            if(playerTag == "Player2")
-            {
-                horizontalInput_P2 = hInput.GetAxis("Horizontal_P2");
-                verticalInput_P2 = hInput.GetAxis("Vertical_P2");
-
-                fireInput_P2 = hInput.GetButtonDown("Fire_P2");
-            }
+            fireInput = hInput.GetButtonDown(fireInputName);
         }
     }
 
@@ -139,7 +137,6 @@ public class PlayerController : MonoBehaviour
             {
                 Shoot();
             }
-            Debug.Log(aimVector);
         }
     }
     void Shoot()

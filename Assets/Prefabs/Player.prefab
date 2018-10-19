@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104346119800420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.77, y: -1.02, z: 0}
+  m_LocalPosition: {x: -0.6769923, y: 0.26337782, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4608621797015954}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540859185864980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalPosition: {x: 0.375, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4608621797015954}
@@ -150,7 +150,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61665859851366060
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -192,9 +192,10 @@ MonoBehaviour:
   autoFire: 0
   spawnPoint: {fileID: 4609710065526762}
   bullet: {fileID: 1666137401051400, guid: f1420b14829eff74fbbf435d0e39f79a, type: 2}
-  ammoAmount: 5
-  reloadTime: 3
   isJoystickEnabled: 0
+  fireRate: 0.5
+  MaxammoAmount: 3
+  maxReloadTime: 0.5
   knockbackRate: 400
 --- !u!212 &212834800113562286
 SpriteRenderer:

@@ -17,10 +17,6 @@ public class PlayerController : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFireRate;
 
-    public int MaxammoAmount = 3;
-    public float maxReloadTime = 0.5f;
-    private float ammoAmount;
-
     public float knockbackRate;
 
     Rigidbody2D rb2d;
@@ -41,8 +37,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-
-        ammoAmount = MaxammoAmount;
     }
     // Use this for initialization
     void Start ()
@@ -57,32 +51,38 @@ public class PlayerController : MonoBehaviour
         if (!autoFire)
         {
             Aim(horizontalInput, verticalInput);
-            if(playerNumber == 1) //for Testing - shoot between a certain time
+            if (fireInput && Time.time > nextFireRate)
             {
-                if (fireInput && Time.time > nextFireRate)
-                {
-                    nextFireRate = Time.time + fireRate;
-                    Shoot();
-                }
+                nextFireRate = Time.time + fireRate;
+                Shoot();
             }
-            if (playerNumber == 2) //For Testing - 3 shots then reload
-            {
-                if (isReloading)
-                {
-                    return;
-                }
-                if (ammoAmount <= 0)
-                {
-                    StartCoroutine(Reload());
-                    return;
-                }
-                if (fireInput)
-                {
-                    Shoot();
-                    ammoAmount--;
-                    Debug.Log(ammoAmount);
-                }
-            }
+            //if (fireInput)
+            //{
+            //    Shoot();
+            //}
+            //if (playerNumber == 1) //for Testing - shoot between a certain time
+            //{
+
+
+            //}
+            //if (playerNumber == 2) //For Testing - 3 shots then reload
+            //{
+            //    if (isReloading)
+            //    {
+            //        return;
+            //    }
+            //    if (ammoAmount <= 0)
+            //    {
+            //        StartCoroutine(Reload());
+            //        return;
+            //    }
+            //    if (fireInput)
+            //    {
+            //        Shoot();
+            //        ammoAmount--;
+            //        Debug.Log(ammoAmount);
+            //    }
+            //}
         }
         else
         {
@@ -98,14 +98,14 @@ public class PlayerController : MonoBehaviour
         }
 	}
     // FOR TESTING
-    IEnumerator Reload()
-    {
-        Debug.Log("Reloading");
-        isReloading = true;
-        yield return new WaitForSeconds(maxReloadTime);
-        ammoAmount = MaxammoAmount;
-        isReloading = false;
-    }
+    //IEnumerator Reload()
+    //{
+    //    Debug.Log("Reloading");
+    //    isReloading = true;
+    //    yield return new WaitForSeconds(maxReloadTime);
+    //    ammoAmount = MaxammoAmount;
+    //    isReloading = false;
+    //}
 
     private void FixedUpdate()
     {
@@ -179,7 +179,8 @@ public class PlayerController : MonoBehaviour
 
     void KnockBack(Vector3 direction)
     {
-        rb2d.velocity = Vector2.zero;
-        rb2d.AddForce((direction * -knockbackRate) * Time.deltaTime, ForceMode2D.Impulse);
+        //rb2d.velocity = Vector2.zero;
+        //rb2d.AddForce((direction * -knockbackRate) * Time.deltaTime, ForceMode2D.Impulse);
+        rb2d.velocity = new Vector2(direction.x, direction.y) * Time.deltaTime * -knockbackRate; 
     }
 }

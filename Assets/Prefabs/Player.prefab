@@ -96,8 +96,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104346119800420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6769923, y: 0.26337782, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.182459, y: 2.7352004, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4608621797015954}
   m_Father: {fileID: 0}
@@ -193,10 +193,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 4609710065526762}
   bullet: {fileID: 1666137401051400, guid: f1420b14829eff74fbbf435d0e39f79a, type: 2}
   isJoystickEnabled: 0
-  fireRate: 0.5
-  MaxammoAmount: 3
-  maxReloadTime: 0.5
-  knockbackRate: 400
+  fireRate: 0.2
+  knockbackRate: 950
 --- !u!212 &212834800113562286
 SpriteRenderer:
   m_ObjectHideFlags: 1

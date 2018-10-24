@@ -6,10 +6,9 @@ public class BaseBulletScript : MonoBehaviour
 {
     public float speed;
     public bool onDetonate = false;
+    public ParticleSystem particle;
     Vector3 direction;
     Rigidbody2D rb2d;
-
-    Camera mainCamera;
 
     public void Setup(Vector3 _direction)
     {
@@ -19,7 +18,6 @@ public class BaseBulletScript : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        mainCamera = FindObjectOfType<Camera>();
     }
     private void FixedUpdate()
     {
@@ -29,16 +27,15 @@ public class BaseBulletScript : MonoBehaviour
     void Move()
     {
         rb2d.velocity = new Vector2(direction.x * speed, direction.y * speed);
-        Destroy(gameObject, 1f);
-        //TODO look for way for the player to knockback
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject); //TODO Consider Changing it to Object pooling
+        Instantiate(particle, transform.position, transform.rotation);
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.SetActive(false);
             Destroy(gameObject);
         }
+        Destroy(gameObject); //TODO Consider Changing it to Object pooling
     }
 }

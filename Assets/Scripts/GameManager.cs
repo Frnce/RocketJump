@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public PlayerManager[] players;
 
     private int roundNumber;
+    private int numberOfPlayers;
     private WaitForSeconds startWait;
     private WaitForSeconds endWait;
     private PlayerManager roundWinner;
@@ -24,14 +25,14 @@ public class GameManager : MonoBehaviour
     {
         startWait = new WaitForSeconds(startDelay);
         endWait = new WaitForSeconds(endDelay);
-
+        numberOfPlayers = PlayerPrefs.GetInt("NumberOfPlayers", 0);
         SpawnAllPlayer();
 
         StartCoroutine(GameLoop());
 	}
     private void SpawnAllPlayer()
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             players[i].playerInstance = Instantiate(playerPrefab, players[i].spawnPoint.position, players[i].spawnPoint.rotation) as GameObject;
             players[i].playerNumber = i + 1;
@@ -106,7 +107,7 @@ public class GameManager : MonoBehaviour
             message = roundWinner.playerColoredText + " WINS THE ROUND";
         }
         message += "\n\n\n\n";
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             message += players[i].playerColoredText + ": " + players[i].playerWins + " WIN/s \n";
         }
@@ -121,7 +122,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerManager GetGameWinner()
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             if(players[i].playerWins == numberOfRounds)
             {
@@ -134,7 +135,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerManager GetRoundWinner()
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             if (players[i].playerInstance.activeSelf)
             {
@@ -148,7 +149,7 @@ public class GameManager : MonoBehaviour
     {
         int numPlayersLeft = 0;
 
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             if (players[i].playerInstance.activeSelf)
             {
@@ -160,7 +161,7 @@ public class GameManager : MonoBehaviour
     }
     private void ResetPlayers()
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             players[i].Reset();
         }
@@ -168,14 +169,14 @@ public class GameManager : MonoBehaviour
 
     private void DisablePlayerControls()
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             players[i].DisableControls();
         }
     }
     private void EnablePlayerControls()
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < numberOfPlayers; i++)
         {
             players[i].EnableControls();
         }

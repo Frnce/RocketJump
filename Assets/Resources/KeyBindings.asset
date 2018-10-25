@@ -180,5 +180,75 @@ MonoBehaviour:
     Invert: 0
     Sensitivity: 1000
     val: 0
+  - Name: Accept_P1
+    UniqueName: Accep_P1
+    Type: 0
+    Positive:
+      Primary: 107
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Cancel_P1
+    UniqueName: Cancel_P1
+    Type: 0
+    Positive:
+      Primary: 108
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Accept_P2
+    UniqueName: Accept_P2
+    Type: 0
+    Positive:
+      Primary: 261
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Cancel_P2
+    UniqueName: Cancel_P2
+    Type: 0
+    Positive:
+      Primary: 262
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 1000
+    val: 0
+  - Name: Enter
+    UniqueName: Enter
+    Type: 0
+    Positive:
+      Primary: 13
+      Secondary: 0
+    Negative:
+      Primary: 0
+      Secondary: 0
+    targetController: 0
+    Axis: 0
+    Invert: 0
+    Sensitivity: 100
+    val: 0
   rebindRemoveKey: 27
   forceResetInEditor: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputs:
   - Name: Horizontal_P1
-    UniqueName: Horizontal_P2
+    UniqueName: Horizontal_P1
     Type: 0
     Positive:
       Primary: 100
@@ -41,7 +41,7 @@ MonoBehaviour:
     Sensitivity: 1000
     val: 0
   - Name: Fire_P1
-    UniqueName: Fire_P2
+    UniqueName: Fire_P1
     Type: 0
     Positive:
       Primary: 107
@@ -54,39 +54,11 @@ MonoBehaviour:
     Invert: 0
     Sensitivity: 1000
     val: 0
-  - Name: HorizontalJoystick_P1
-    UniqueName: HorizontalJoystick_P1
-    Type: 2
-    Positive:
-      Primary: 0
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1000
-    val: 0
-  - Name: VerticalJoystick_P1
-    UniqueName: VerticalJostick_P2
-    Type: 2
-    Positive:
-      Primary: 0
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 1
-    Invert: 1
-    Sensitivity: 1000
-    val: 0
-  - Name: FireJoystick_P1
-    UniqueName: FireJoystick_P1
+  - Name: Cancel_P1
+    UniqueName: Cancel_P1
     Type: 0
     Positive:
-      Primary: 330
+      Primary: 108
       Secondary: 0
     Negative:
       Primary: 0
@@ -126,90 +98,6 @@ MonoBehaviour:
     val: 0
   - Name: Fire_P2
     UniqueName: Fire_P2
-    Type: 0
-    Positive:
-      Primary: 261
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1000
-    val: 0
-  - Name: HorizontalJoystick_P2
-    UniqueName: HorizontalJoystick_P2
-    Type: 2
-    Positive:
-      Primary: 0
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1000
-    val: 0
-  - Name: VerticalJoystick_P2
-    UniqueName: VerticalJoystick_P2
-    Type: 2
-    Positive:
-      Primary: 0
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 1
-    Invert: 1
-    Sensitivity: 1000
-    val: 0
-  - Name: FireJoystick_P2
-    UniqueName: FireJoystick_P2
-    Type: 0
-    Positive:
-      Primary: 330
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1000
-    val: 0
-  - Name: Accept_P1
-    UniqueName: Accep_P1
-    Type: 0
-    Positive:
-      Primary: 107
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1000
-    val: 0
-  - Name: Cancel_P1
-    UniqueName: Cancel_P1
-    Type: 0
-    Positive:
-      Primary: 108
-      Secondary: 0
-    Negative:
-      Primary: 0
-      Secondary: 0
-    targetController: 0
-    Axis: 0
-    Invert: 0
-    Sensitivity: 1000
-    val: 0
-  - Name: Accept_P2
-    UniqueName: Accept_P2
     Type: 0
     Positive:
       Primary: 261

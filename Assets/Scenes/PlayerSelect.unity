@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 1062530595}
   - component: {fileID: 1062530594}
   m_Layer: 5
-  m_Name: Press Button to Join 2
+  m_Name: Status 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1517,7 +1517,7 @@ GameObject:
   m_Layer: 0
   m_Name: CharacterSelectManager
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1533,8 +1533,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMatch: {fileID: 1478634878}
-  Player_1: {fileID: 1873249511}
-  Player_2: {fileID: 1462195489}
+  Players:
+  - {fileID: 1873249511}
+  - {fileID: 1462195489}
+  - {fileID: 1884399499}
+  - {fileID: 1486462698}
 --- !u!4 &2004190103
 Transform:
   m_ObjectHideFlags: 0

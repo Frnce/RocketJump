@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4339436484363722}
   - component: {fileID: 198892704111819056}
   - component: {fileID: 199161158448364960}
+  - component: {fileID: 114554688743907714}
   m_Layer: 0
   m_Name: Bullet On Hit Particles
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114554688743907714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850242738946306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe918b54a369fa4cb38dc41d376494d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198892704111819056
 ParticleSystem:
   m_ObjectHideFlags: 1

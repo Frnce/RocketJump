@@ -1,3 +1,6 @@
 Rocket Jump is a 2D platformer Battle Arena  where up to 4 players can battle each other of who is the strongest.
 
-The mechanics of the game is the player can jump while on rocket boots and the goal of the game is to be the last remaining player.
+Your rocket launcher is all you need to win. use it to dodge,Move and Attack to be the last man standing.
+
+
+# This is still in Prototype Phase and will be subjected to change while development is ongoing.
